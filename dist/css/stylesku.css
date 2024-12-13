@@ -1,0 +1,133 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff5f5; /* Warna putih lembut */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #ff0000; /* Merah gelap */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 26px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.navbar-brand:hover {
+    color: #ffcdd2; /* Merah muda */
+    transform: scale(1.1);
+}
+
+/* Features section styles */
+.features {
+    background-color: white;
+    padding: 60px 0;
+}
+
+.features .feature-item {
+    background-color: #ffebee; /* Latar merah lembut */
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.features .feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #ffcdd2; /* Merah muda */
+}
+
+.features .feature-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #ff0000; /* Merah gelap */
+}
+
+.features .feature-link {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.features .feature-link:hover {
+    color: #b71c1c;
+    transform: translateX(5px);
+    text-decoration: underline;
+}
+
+.icon-arrow-right:before {
+    content: "\2192"; /* Unicode character for right arrow */
+}
+
+/* Footer styles */
+.footer {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.features .feature-item:hover {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+}
