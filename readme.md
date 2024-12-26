@@ -50,11 +50,11 @@ Sebagai seorang Dokter, saya ingin mengetahui riwayat pasien yang telah saya per
 
 ## Instalasi
 
-1. Klon repository: `git clone git@github.com:Bengkel-Koding-Web/bk-poliklinik.git`
+1. Klon repository: `https://github.com/adeljanani/bk_adel.git`
 
 2. Siapkan server web (misalnya, Apache) dan konfigurasikan agar menunjuk ke direktori publik proyek.
 
-3. Impor skema database dari `poliklinik.sql` ke database MySQL Anda.
+3. Impor skema database dari `poliklinik1.sql` ke database MySQL Anda.
 
 4. Konfigurasi koneksi database pada `config/conn.php`.
 
