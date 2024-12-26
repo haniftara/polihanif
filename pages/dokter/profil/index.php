@@ -17,7 +17,7 @@ if ($akses != 'dokter') {
   echo "<meta http-equiv='refresh' content='0; url=..'>";
   die();
 }
-
+// mengambil data dokter dari database berdasarkan dokter yang login
 $dokter = query("SELECT * FROM dokter WHERE id = $id")[0];
 
 if (isset($_POST["submit"])) {
@@ -45,7 +45,7 @@ if (isset($_POST["submit"])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- Tampilan Header dan Layout -->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,7 +91,7 @@ if (isset($_POST["submit"])) {
           </div>
         </div>
       </div>
-
+      <!-- Form Edit Profil Dokter -->
       <section class="content">
         <div class="card card-primary">
           <div class="card-header">

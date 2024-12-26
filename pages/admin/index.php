@@ -1,4 +1,5 @@
 <?php
+// Memastikan admin telah login
 include_once("../../config/conn.php");
 session_start();
 
@@ -16,7 +17,7 @@ if ($akses != 'admin') {
   echo "<meta http-equiv='refresh' content='0; url=../..'>";
   die();
 }
-
+// Mengambil jumlah total pasien, dokter, dan obat dari tabel database
 $totalPatientsQuery = "SELECT COUNT(*) as total FROM pasien";
 $totalPatientsResult = mysqli_query($conn, $totalPatientsQuery);
 $totalPatients = mysqli_fetch_assoc($totalPatientsResult)['total'];
@@ -30,6 +31,7 @@ $totalObatResult = mysqli_query($conn, $totalObatQuery);
 $totalObat = mysqli_fetch_assoc($totalObatResult)['total'];
 ?>
 <?php
+
 $title = 'Poliklinik | Dashboard';
 ob_start();
 
@@ -37,7 +39,7 @@ $content = ob_get_clean();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- Menampilkan title halaman dan mengimpor stylesheet yang digunakan untuk tampilan antarmuka admin -->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,7 +66,7 @@ $content = ob_get_clean();
   <!-- summernote -->
   <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/plugins/summernote/summernote-bs4.min.css">
 </head>
-
+<!-- Membuat tampilan dashboard lebih menarik dengan efek hover dan margin yang responsif -->
 <style>
   .summary-box {
     background-color: #ff6b6b; /* Warna merah muda */
@@ -100,7 +102,7 @@ $content = ob_get_clean();
     text-decoration: none;
   }
 </style>
-
+<!-- Menampilkan jumlah total pasien, dokter, dan obat -->
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
     <?php include "../../layouts/header.php" ?>
@@ -140,6 +142,7 @@ $content = ob_get_clean();
       </div>
     </div>
 
+    <!-- Menyertakan footer halaman dan plugin tambahan untuk mendukung fitur halaman admin -->
     <?php include "../../layouts/footer.php"; ?>
   </div>
 

@@ -1,4 +1,5 @@
 <?php
+// Memastikan bahwa pengguna sudah login (dokter)
 include_once "../../../config/conn.php";
 session_start();
 
@@ -18,7 +19,7 @@ if ($akses != 'dokter') {
     die();
 }
 
-// Input data to db
+// Input data ke database
 if (isset($_POST["submit"])) {
   // Cek validasi
   if (empty($_POST["hari"]) || empty($_POST["jam_mulai"]) || empty($_POST["jam_selesai"])) {
@@ -78,7 +79,7 @@ Tambah Jadwal Periksa
 $main_title = ob_get_clean();
 ob_flush();
 
-// Content Section
+// Form Tambah Data Jadwal Periksa
 ob_start();?>
 <div class="card">
   <div class="card-header">
@@ -117,5 +118,5 @@ ob_start();?>
 $content = ob_get_clean();
 ob_flush();
 ?>
-
+<!-- Menyertakan file layout yang mengatur tampilan keseluruhan halaman, termasuk header, footer, dan CSS tambahan -->
 <?php include_once "../../../layouts/index.php";?>

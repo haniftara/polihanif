@@ -36,7 +36,7 @@ Riwayat Pasien
 $main_title = ob_get_clean();
 ob_flush();
 
-// Content section
+// Membuat tabel dengan kolom: Nomor, Nama Pasien, Alamat, No. KTP, Telepon, No. RM, dan Aksi
 ob_start();
 ?>
 <div class="card">
@@ -58,6 +58,7 @@ ob_start();
       </thead>
       <tbody>
         <?php
+        // Mengambil Data Pasien
         $index = 1;
         $data = $pdo->query("SELECT * FROM pasien");
         if ($data->rowCount() == 0) {

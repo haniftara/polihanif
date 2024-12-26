@@ -1,4 +1,5 @@
 <?php
+// Memastikan admin telah login
 include_once("../../../config/conn.php");
 session_start();
 
@@ -18,6 +19,7 @@ if ($akses != 'admin') {
 }
 ?>
 <?php
+// Menentukan judul halaman dan menampilkan breadcrumb navigasi
 $title = 'Poliklinik | Obat';
 // Breadcrumb section
 ob_start();?>
@@ -29,7 +31,7 @@ ob_start();?>
 $breadcrumb = ob_get_clean();
 ob_flush();
 
-// Title Section
+// Tambah / Edit Pasien
 ob_start();?>
 Tambah / Edit Pasien
 <?php
@@ -40,6 +42,7 @@ ob_flush();
 ob_start();
 
 ?>
+<!-- Membuat formulir untuk input data pasien -->
 <form class="form col" method="POST" action="" required name="myForm" onsubmit="return(validate());">
 <?php
     $nama = '';
@@ -69,9 +72,8 @@ ob_start();
     <?php
     }
     
-    // Jika sedang dalam mode ubah, isi Nomor RM sesuai data yang diubah
+    // Jika menambahkan/mengedit data baru, hitung nomor berdasarkan tanggal dan urutan terakhir dalam database
     if (!isset($_GET['id'])) {
-        // Jika menambahkan data baru, hitung Nomor RM sesuai format
         $tahun_bulan = date("Ym");
         $query_last_id = "SELECT MAX(CAST(SUBSTRING(no_rm, 8) AS SIGNED)) as last_queue_number FROM pasien";
         $result_last_id = $pdo->query($query_last_id);
@@ -82,6 +84,7 @@ ob_start();
        
     }
     ?>
+    <!-- Menampilkan input formulir yang harus diisi oleh admin -->
         <div class="row mt-3">
             <label for="nama" class="form-label fw-bold">
                 Nama Pasien
@@ -125,7 +128,7 @@ ob_start();
     <button class="btn btn-secondary ml-2" style="width: 3cm;">Reset</button>
   </a>
 </div>
-
+<!-- Menampilkan tabel pasien dengan data yang diambil dari database -->
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">Pasien</h3>
@@ -167,6 +170,7 @@ ob_start();
       </tbody>
     </table>
     <?php
+    // Menyimpan Data CRUD (Tambah/Ubah)
       if (isset($_POST['simpan'])) {
         if (isset($_POST['id'])) {
             $stmt = $pdo->prepare("UPDATE pasien SET 
@@ -202,6 +206,7 @@ ob_start();
             header('Location:index.php');
         }
     }
+    // Menghapus Data CRUD
     if (isset($_GET['aksi']) && $_GET['aksi'] == 'hapus') {
     $stmt = $pdo->prepare("DELETE FROM pasien WHERE id = :id");
     $stmt->bindParam(':id', $_GET['id']);

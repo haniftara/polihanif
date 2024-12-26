@@ -16,7 +16,7 @@ if ($akses != 'dokter') {
   echo "<meta http-equiv='refresh' content='0; url=../..'>";
   die();
 }
-
+// Menghitung Total Pasien
 $totalPatientsQuery = "SELECT COUNT(*) as total FROM pasien";
 $totalPatientsResult = mysqli_query($conn, $totalPatientsQuery);
 $totalPatients = mysqli_fetch_assoc($totalPatientsResult)['total'];
@@ -121,7 +121,7 @@ $totalPatients = mysqli_fetch_assoc($totalPatientsResult)['total'];
       </div>
       <!-- /.content-header -->
 
-      <!-- Main content -->
+      <!-- Menampilkan Total Pasien -->
        <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6 col-12 mb-3">

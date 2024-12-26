@@ -2,6 +2,7 @@
 include_once("../../../config/conn.php");
 session_start();
 
+//Mengecek apakah sesi login telah diatur
 if (isset($_SESSION['login'])) {
   $_SESSION['login'] = true;
 } else {
@@ -12,6 +13,7 @@ if (isset($_SESSION['login'])) {
 $nama = $_SESSION['username'];
 $akses = $_SESSION['akses'];
 
+//Hanya pengguna dengan akses admin 
 if ($akses != 'admin') {
   echo "<meta http-equiv='refresh' content='0; url=../..'>";
   die();
@@ -19,7 +21,7 @@ if ($akses != 'admin') {
 ?>
 <?php
 $title = 'Poliklinik | Obat';
-// Breadcrumb section
+// Breadcrumb section / Pembuatan Breadcrumb dan Judul
 ob_start();?>
 <ol class="breadcrumb float-sm-right">
   <li class="breadcrumb-item"><a href="<?= $base_admin; ?>">Home</a></li>
@@ -45,6 +47,7 @@ ob_start();
         $alamat = '';
         $no_hp = '';
         $id_poli = 0;
+        //Pre-populasi Form: Jika ada parameter id, data dokter akan diambil dari database
         if (isset($_GET['id'])) {
             try {
                 $stmt = $pdo->prepare("SELECT * FROM dokter WHERE id = :id");
@@ -60,11 +63,12 @@ ob_start();
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
             }
-        ?>
+        ?>  
         <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
         <?php
         }
         ?>
+        
         <div class="row mt-3">
             <label for="nama" class="form-label fw-bold">
                 Nama Dokter
@@ -87,7 +91,7 @@ ob_start();
         <div class="row mt-3">
             <label for="id_poli" class="form-label fw-bold">
                 Poli
-            </label>
+            </label>  
             <select class="form-control" name="id_poli" id="id_poli">
                 <?php
                 $stmt = $pdo->query("SELECT * FROM poli");
@@ -128,6 +132,7 @@ ob_start();
       </thead>
       <tbody>
         <?php
+        //Menampilkan Data Dokter 
         $result = $pdo->query("SELECT * FROM dokter");
         $no = 1;
         while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -139,6 +144,7 @@ ob_start();
               <td><?php echo $data['no_hp'] ?></td>
               <td>
                 <?php
+                //Relasi Poli: Nama poli diambil dari tabel poli menggunakan ID poli yang ada di tabel dokter
                 $id_poli = $data['id_poli'];
                 $poli = $pdo->query("SELECT * FROM poli WHERE id = $id_poli");
                 $no = 1;
@@ -159,6 +165,7 @@ ob_start();
       </tbody>
     </table>
     <?php
+    //Simpan Data: Jika form disubmit
         if (isset($_POST['simpan'])) {
         if (isset($_POST['id'])) {
             $stmt = $pdo->prepare("UPDATE dokter SET 
@@ -190,7 +197,7 @@ ob_start();
 
             header('Location:index.php');
         }
-    }
+    }//Hapus Data: Jika parameter aksi=hapus ada
     if (isset($_GET['aksi']) && $_GET['aksi'] == 'hapus') {
     $stmt = $pdo->prepare("DELETE FROM dokter WHERE id = :id");
     $stmt->bindParam(':id', $_GET['id']);

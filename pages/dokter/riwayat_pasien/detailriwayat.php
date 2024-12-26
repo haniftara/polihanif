@@ -38,6 +38,7 @@ $pasien_id = $_GET['pasien_id'];
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <!-- Menampilkan judul -->
   <div class="wrapper">
     <div class="content-wrapper">
       <section class="content-header">
