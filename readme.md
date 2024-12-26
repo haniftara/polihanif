@@ -54,7 +54,7 @@ Sebagai seorang Dokter, saya ingin mengetahui riwayat pasien yang telah saya per
 
 2. Siapkan server web (misalnya, Apache) dan konfigurasikan agar menunjuk ke direktori publik proyek.
 
-3. Impor skema database dari `poliklinik1.sql` ke database MySQL Anda.
+3. Impor skema database dari `bk_poliklinik1.sql` ke database MySQL Anda.
 
 4. Konfigurasi koneksi database pada `config/conn.php`.
 
