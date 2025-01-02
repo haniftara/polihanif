@@ -3,6 +3,7 @@
 ---
 
 ## Gambaran Umum
+
 Sistem Temu Janji Pasien Dokter atau yang lebih dikenal dengan Appointment System.
 Sistem ini sudah banyak digunakan / diberlakukan pada rumah sakit komersial. Salah satu
 contohnya adalah rumah sakit Elizabeth (https://regonline.rs-elisabeth.com/)
@@ -35,9 +36,10 @@ contohnya adalah rumah sakit Elizabeth (https://regonline.rs-elisabeth.com/)
 - Sebagai seorang Dokter, saya ingin mengatur waktu janjian saya dengan pasien yang akan periksa ke saya. Sehingga pasien yang akan periksa ke saya memiliki potensi / kesempatan yang lebih besar untuk dapat bertemu dengan saya.
 - **Memperbaharui Data Dokter**
 - Sebagai seorang Dokter, saya ingin memperbaharui data diri saya seperti memperbaharui nama dan gelar saya, dapat memperbaharui password saya login, dan poli dimana saya melakukan pemeriksaan. Sehingga akan mempermudah
-pekerjaan saya untuk mengelola data pasien.
+  pekerjaan saya untuk mengelola data pasien.
 - **Menampilkan Riwayat Pasien**
-Sebagai seorang Dokter, saya ingin mengetahui riwayat pasien yang telah saya periksa. Sehingga akan mempermudah pekerjaan saya untuk melakukan pemeriksaan pasien.
+  Sebagai seorang Dokter, saya ingin mengetahui riwayat pasien yang telah saya periksa. Sehingga akan mempermudah pekerjaan saya untuk melakukan pemeriksaan pasien.
+
 ## Teknologi yang Digunakan
 
 - **PHP**: Pengembangan backend menggunakan PHP untuk logika sisi server.
@@ -50,7 +52,7 @@ Sebagai seorang Dokter, saya ingin mengetahui riwayat pasien yang telah saya per
 
 ## Instalasi
 
-1. Klon repository: `https://github.com/adeljanani/bk_adel.git`
+1. Klon repository: `https://github.com/haniftara/polihanif.git`
 
 2. Siapkan server web (misalnya, Apache) dan konfigurasikan agar menunjuk ke direktori publik proyek.
 
@@ -80,4 +82,4 @@ Proyek ini dilisensikan di bawah [Bengkel Koding](https://bengkelkoding.dinus.ac
 
 - Ikon dibuat oleh [Freepik](https://www.freepik.com) dari [www.flaticon.com](https://www.flaticon.com/).
 
---- 
+---
