@@ -1,37 +1,37 @@
 <!-- jQuery -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/jquery/jquery.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/chart.js/Chart.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/sparklines/sparkline.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/moment/moment.min.js"></script>
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/moment/moment.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/dist/js/adminlte.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/dist/js/pages/dashboard.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//dist/js/pages/dashboard.js"></script>
 <!-- Select2 -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/bk_adel/plugins/select2/js/select2.full.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>//plugins/select2/js/select2.full.min.js"></script>
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -17,8 +17,8 @@ if ($akses != 'pasien') {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= getenv('APP_NAME') ?> | Dashboard</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Google Font: Poppins -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -38,8 +38,15 @@ if ($akses != 'pasien') {
   <!-- summernote -->
   <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
+  <style>
+    .card {
+      font-family: 'Poppins', sans-serif;
+      border-radius: 10px;
+    }
+  </style>
 
   <!-- Preloader -->
   
@@ -71,13 +78,13 @@ if ($akses != 'pasien') {
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Selamat Datang di Poliklinik BK</h3>
+                <h3 class="card-title"><b>Selamat Datang di Poliklinik Nusantara</b></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <p>Poliklinik kami menyediakan berbagai layanan kesehatan untuk memenuhi kebutuhan Anda. Dengan dukungan tenaga medis yang profesional dan berpengalaman, kami berkomitmen untuk memberikan pelayanan terbaik bagi setiap pasien.</p>
-                <p>Untuk melakukan pendaftaran di poli, silakan gunakan menu di sidebar. Klik pada bagian 'Poli' dan ikuti langkah-langkah yang tersedia. Kami berharap Anda mendapatkan pengalaman yang baik selama berada di poliklinik kami.</p>
-                <p>Terima kasih telah mempercayakan kesehatan Anda kepada kami.</p>
+                <p>Poliklinik Nusantara hadir untuk memberikan layanan kesehatan terbaik bagi Anda dan keluarga. Dengan dukungan tenaga medis yang profesional serta fasilitas yang lengkap, kami siap melayani kebutuhan kesehatan Anda dengan sepenuh hati.</p>
+                <p>Untuk mendaftar layanan di Poliklinik Nusantara, silakan gunakan menu "Poli" yang tersedia di sidebar. Ikuti langkah-langkah pendaftaran yang sederhana dan mudah. Kami berkomitmen untuk memastikan kenyamanan dan kepuasan Anda selama berada di poliklinik kami.</p>
+                <p>Terima kasih telah mempercayakan kesehatan Anda kepada Poliklinik Nusantara. Kami berharap dapat selalu menjadi mitra kesehatan terbaik bagi Anda.</p>
               </div>
               <!-- /.card-body -->
             </div>

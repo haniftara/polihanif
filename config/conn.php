@@ -153,7 +153,6 @@ function TambahPeriksa($data)
     return mysqli_affected_rows($conn);
 }
 
-// ini belum selesai mau dilanjutin vander :v
 function TambahDetailPeriksa($data){
     global $conn;
      // ambil data dari tiap elemen dalam form

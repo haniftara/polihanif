@@ -22,25 +22,25 @@ $dokter = query("SELECT * FROM dokter WHERE id = $id")[0];
 
 if (isset($_POST["submit"])) {
   if (ubahDokter($_POST) > 0) {
-    $_SESSION['username'] = $_POST['nama'];
-    echo "
-        <script>
-            alert('Data berhasil diubah');
-            document.location.href = '../profil';
-        </script>
-    ";
-    session_write_close();
-    header("Refresh:0");
-    exit;
+      $_SESSION['username'] = $_POST['nama'];
+      // Menampilkan alert dan melakukan redirect ke halaman profil
+      echo "
+          <script>
+              alert('Data Berhasil diubah');
+              window.location.href = '/pages/dokter/profil';
+          </script>
+      ";
+      exit;
   } else {
-    echo "
-        <script>
-            alert('Data Gagal diubah');
-            document.location.href = '../profil';
-        </script>
-    ";
+      echo "
+          <script>
+              alert('Data Gagal diubah');
+              document.location.href = '../profil';
+          </script>
+      ";
   }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -54,26 +54,27 @@ if (isset($_POST["submit"])) {
   <?php include "../../../layouts/plugin_header.php" ?>
   
   <style>
+
     /* Warna merah tua untuk header */
     .card-primary {
-      border-color: #ff4c4c !important; /* Border merah tua */
+      border-color: #006bb3 !important; /* Border merah tua */
     }
 
     .card-primary .card-header {
-      background-color: #ff4c4c !important; /* Header merah tua */
+      background-color: #006bb3 !important; /* Header merah tua */
       color: white !important; /* Teks putih */
-      border-bottom: 1px solid #ff4c4c !important;
+      border-bottom: 1px solid #006bb3 !important;
     }
 
     /* Tombol warna merah tua */
     .btn-primary {
-      background-color: #ff4c4c !important;
-      border-color: #ff4c4c !important;
+      background-color: #006bb3 !important;
+      border-color: #006bb3 !important;
     }
 
     .btn-primary:hover {
-      background-color: #e04343 !important;
-      border-color: #e04343 !important;
+      background-color: #006bb3 !important;
+      border-color: #006bb3 !important;
     }
   </style>
 </head>

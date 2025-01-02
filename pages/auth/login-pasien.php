@@ -43,24 +43,17 @@ if (isset($_POST['klik'])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Poliklinik | Login</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: linear-gradient(to right, #ffcccc, #ffeeee);
-      animation: backgroundAnimation 6s infinite alternate;
-    }
-
-    @keyframes backgroundAnimation {
-      0% { background: linear-gradient(to right, #ffcccc, #ffeeee); }
-      50% { background: linear-gradient(to right, #ffe6e6, #ffcccc); }
-      100% { background: linear-gradient(to right, #ffcccc, #ffeeee); }
+      background: linear-gradient(45deg,rgb(255, 255, 255),rgb(221, 221, 221));
     }
 
     .container {
@@ -71,42 +64,20 @@ if (isset($_POST['klik'])) {
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      animation: fadeIn 1.5s ease-in;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
 
     .left-box {
       flex: 1;
-      background-color: #d32f2f;
+      background-color: #001f3d;
       color: white;
       text-align: center;
       padding: 50px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      animation: slideInLeft 1.5s ease-in;
     }
 
-    @keyframes slideInLeft {
-      from {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
 
     .right-box {
       flex: 1;
@@ -115,7 +86,7 @@ if (isset($_POST['klik'])) {
       flex-direction: column;
       justify-content: center;
       padding: 50px;
-      animation: slideInRight 1.5s ease-in;
+      animation: slideInRight 1s ease-in;
     }
 
     @keyframes slideInRight {
@@ -133,19 +104,19 @@ if (isset($_POST['klik'])) {
       width: 100%;
       padding: 15px;
       margin-bottom: 20px;
-      border: 1px solid #d32f2f;
+      border: 1px solid #001f3d;
       border-radius: 50px;
       box-sizing: border-box;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
 
     .form-control:focus {
-      border-color: #b71c1c;
+      border-color: #001f3d;
       box-shadow: 0 0 10px rgba(183, 28, 28, 0.5);
     }
 
     .btn-primary {
-      background-color: #d32f2f;
+      background-color: #001f3d;
       color: white;
       padding: 15px;
       border: none;
@@ -155,16 +126,21 @@ if (isset($_POST['klik'])) {
       font-weight: bold;
       text-transform: uppercase;
       transition: background-color 0.3s, transform 0.3s;
+      display: block; 
+      margin: 20px auto; 
+      text-align: center; 
+      width: 100%;
+      max-width: 400px;
     }
 
     .btn-primary:hover {
-      background-color: #b71c1c;
+      background-color:rgb(0, 56, 112);
       transform: translateY(-3px);
     }
 
     .alert {
       background-color: #ffebee;
-      color: #d32f2f;
+      color:rgb(255, 0, 0);
       padding: 15px;
       border-radius: 10px;
       text-align: center;
@@ -201,7 +177,7 @@ if (isset($_POST['klik'])) {
 <div class="container">
   <div class="left-box">
     <h1>Selamat Datang</h1>
-    <p>Login Pasien Poliklinik</p>
+    <p>Login Pasien Poliklinik Nusantara</p>
   </div>
   <div class="right-box">
     <h2>Login</h2>
@@ -210,9 +186,9 @@ if (isset($_POST['klik'])) {
     <?php } ?>
     <form method="POST">
       <input type="text" name="nama" class="form-control" placeholder="Username" required />
-      <input type="password" name="alamat" class="form-control" placeholder="Password" required />
+      <input type="password" name="alamat" class="form-control" placeholder="Alamat" required />
       <p style="text-align: center;">Belum punya akun? 
-        <a href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/pages/auth/register.php" style="color: #d32f2f;">Daftar</a>
+        <a href="http://<?= $_SERVER['HTTP_HOST'] ?>/pages/auth/register.php" style="color: #001f3d;">Daftar</a>
       </p>
       <button type="submit" name="klik" class="btn-primary">Masuk</button>
     </form>

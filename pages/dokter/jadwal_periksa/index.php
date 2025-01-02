@@ -21,8 +21,30 @@ if ($akses != 'dokter') {
 
 <?php
 $title = 'Poliklinik | Jadwal Periksa';
+// Tambahkan link Google Fonts di bagian header
+ob_start(); ?>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+  .card-title {
+    font-weight: 500;
+  }
+  .btn {
+    font-weight: 400;
+  }
+  table th, table td {
+    font-size: 14px;
+    font-weight: 400;
+  }
+</style>
+<?php
+$head = ob_get_clean();
+ob_flush();
+
 // Breadcrumb section
-ob_start();?>
+ob_start(); ?>
 <ol class="breadcrumb float-sm-right">
   <li class="breadcrumb-item"><a href="<?= $base_dokter; ?>">Home</a></li>
   <li class="breadcrumb-item active">Jadwal Periksa</li>
@@ -32,7 +54,7 @@ $breadcrumb = ob_get_clean();
 ob_flush();
 
 // Title Section
-ob_start();?>
+ob_start(); ?>
 Jadwal Periksa
 <?php
 $main_title = ob_get_clean();
@@ -48,7 +70,7 @@ ob_start();
         <h3 class="card-title">Daftar Jadwal Periksa</h3>
       </div>
       <div class="col-6">
-        <a href="create.php" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i> Tambah Jadwal Periksa</a>
+        <a href="<?= $base_dokter; ?>/jadwal_periksa/create.php" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i> Tambah Jadwal Periksa</a>
       </div>
     </div>
   </div>
@@ -81,19 +103,19 @@ ob_start();
         if ($data->rowCount() == 0) {
           echo "<tr><td colspan='7' align='center'>Tidak ada data</td></tr>";
         } else {
-          while($d = $data->fetch()) {
+          while ($d = $data->fetch()) {
         ?>
-        <tr>
-          <td><?= $no++; ?></td>
-          <td><?= $d['nama_dokter'] ?></td>
-          <td><?= $d['hari'] ?></td>
-          <td><?= $d['jam_mulai'] ?></td>
-          <td><?= $d['jam_selesai'] ?></td>
-          <td><?= $d['aktif'] == 'Y' ? 'Aktif' : 'Tidak Aktif' ?></td>
-          <td>
-            <a href="edit.php/<?= $d['id']?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
-          </td>
-        </tr>
+            <tr>
+              <td><?= $no++; ?></td>
+              <td><?= $d['nama_dokter'] ?></td>
+              <td><?= $d['hari'] ?></td>
+              <td><?= $d['jam_mulai'] ?></td>
+              <td><?= $d['jam_selesai'] ?></td>
+              <td><?= $d['aktif'] == 'Y' ? 'Aktif' : 'Tidak Aktif' ?></td>
+              <td>
+                <a href="<?= $base_dokter; ?>/jadwal_periksa/edit.php?id=<?= $d['id'] ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
+              </td>
+            </tr>
         <?php
           }
         }
@@ -107,7 +129,7 @@ $content = ob_get_clean();
 ob_flush();
 
 // JS Section
-ob_start();?>
+ob_start(); ?>
 <script>
   $(document).ready(function() {
     $('.delete-button').on('click', function(e) {

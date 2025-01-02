@@ -78,9 +78,9 @@ ob_start();
 
             <td>
               <?php if ($pasiens["status_periksa"] == 0) { ?>
-                <a href="create.php?id=<?= $pasiens['id_daftar_poli'] ?>" class="btn btn-primary"><i class="fas fa-stethoscope"></i> Periksa </a>
+                <a href="<?= $base_dokter; ?>/memeriksa_pasien/create.php?id=<?= $pasiens['id_daftar_poli'] ?>" class="btn btn-primary"><i class="fas fa-stethoscope"></i> Periksa </a>
               <?php } else { ?>
-                <a href="edit.php?id=<?= $pasiens['id_periksa'] ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit </a>
+                <a href="<?= $base_dokter; ?>/memeriksa_pasien/edit.php?id=<?= $pasiens['id_periksa'] ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit </a>
               <?php } ?>
             </td>
           </tr>

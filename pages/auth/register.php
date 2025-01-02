@@ -74,24 +74,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Poliklinik | Registrasi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: linear-gradient(to right, #ffcccc, #ffeeee);
-      animation: backgroundAnimation 6s infinite alternate;
-    }
-
-    @keyframes backgroundAnimation {
-      0% { background: linear-gradient(to right, #ffcccc, #ffeeee); }
-      50% { background: linear-gradient(to right, #ffe6e6, #ffcccc); }
-      100% { background: linear-gradient(to right, #ffcccc, #ffeeee); }
+      background: linear-gradient(45deg,rgb(255, 255, 255),rgb(221, 221, 221));
     }
 
     .container {
@@ -105,20 +98,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       animation: fadeIn 1.5s ease-in;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
 
     .left-box {
       flex: 1;
-      background-color: #d32f2f;
+      background-color: #001f3d;
       color: white;
       text-align: center;
       padding: 50px;
@@ -140,19 +123,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       width: 100%;
       padding: 15px;
       margin-bottom: 20px;
-      border: 1px solid #d32f2f;
+      border: 1px solid #001f3d;
       border-radius: 50px;
       box-sizing: border-box;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
 
     .form-control:focus {
-      border-color: #b71c1c;
+      border-color: #001f3d;
       box-shadow: 0 0 10px rgba(183, 28, 28, 0.5);
     }
 
     .btn-primary {
-      background-color: #d32f2f;
+      background-color: #001f3d;
       color: white;
       padding: 15px;
       border: none;
@@ -162,6 +145,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       font-weight: bold;
       text-transform: uppercase;
       transition: background-color 0.3s, transform 0.3s;
+      display: block; 
+      margin: 20px auto; 
+      text-align: center; 
+      width: 100%;
+      max-width: 400px;
     }
 
     .btn-primary:hover {
@@ -187,7 +175,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
   <div class="left-box">
     <h1>Selamat Datang</h1>
-    <p>Poliklinik Registrasi Pasien</p>
+    <p>Registrasi Pasien Poliklinik Nusantara</p>
   </div>
   <div class="right-box">
     <h2>Registrasi</h2>
@@ -198,11 +186,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <input type="number" class="form-control" required placeholder="No HP" id="no_hp" name="no_hp">
       <div class="form-check">
         <input type="checkbox" required id="agreeTerms" name="terms" value="agree">
-        <label for="agreeTerms">Saya setuju dengan <a href="#" style="color: #d32f2f;">Syarat & Ketentuan</a></label>
+        <label for="agreeTerms">Saya setuju dengan <a href="#" style="color: #001f3d;">Syarat & Ketentuan</a></label>
       </div>
       <div class="form-check">
         <label>Sudah punya akun? 
-          <a href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/pages/auth/login-pasien.php" style="color: #d32f2f;">Login</a>
+          <a href="http://<?= $_SERVER['HTTP_HOST'] ?>/pages/auth/login-pasien.php" style="color: #001f3d;">Login</a>
         </label>
       </div>
       <button type="submit" class="btn-primary">Daftar</button>

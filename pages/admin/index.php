@@ -39,37 +39,41 @@ $content = ob_get_clean();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<!-- Menampilkan title halaman dan mengimpor stylesheet yang digunakan untuk tampilan antarmuka admin -->
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Poliklinik | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>//plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>//plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>//plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/plugins/jqvmap/jqvmap.min.css">
+  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>//plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>//dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>//plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>//plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>//plugins/summernote/summernote-bs4.min.css">
 </head>
 <!-- Membuat tampilan dashboard lebih menarik dengan efek hover dan margin yang responsif -->
 <style>
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
   .summary-box {
-    background-color: #ff6b6b; /* Warna merah muda */
+    background-color: #006bb3;
     border-radius: 10px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: margin-top 0.3s ease;
@@ -77,6 +81,7 @@ $content = ob_get_clean();
     color: white;
     margin-right: 15px;
     width: 30%;
+    font-family: 'Poppins', sans-serif; /* Terapkan font Poppins */
   }
 
   .summary-box:hover {
@@ -85,6 +90,7 @@ $content = ob_get_clean();
 
   .summary-box h3 {
     margin-bottom: 10px;
+    font-weight: 600; /* Tambahkan font-weight untuk heading */
   }
 
   .summary-container {
@@ -94,6 +100,7 @@ $content = ob_get_clean();
 
   .no-decoration {
     text-decoration: none;
+    font-family: 'Poppins', sans-serif; /* Terapkan font Poppins */
   }
 
   .no-decoration:hover {
@@ -101,7 +108,23 @@ $content = ob_get_clean();
     transition: 0.5s;
     text-decoration: none;
   }
+
+  h1, h3, p {
+    font-family: 'Poppins', sans-serif; /* Terapkan font Poppins pada heading dan paragraf */
+  }
+
+  .breadcrumb-item a {
+    font-family: 'Poppins', sans-serif; /* Terapkan font Poppins pada breadcrumb */
+    color: #006bb3; /* Warna teks breadcrumb */
+    text-decoration: none;
+  }
+
+  .breadcrumb-item a:hover {
+    text-decoration: underline; /* Efek hover pada breadcrumb */
+    transition: 0.3s ease;
+  }
 </style>
+
 <!-- Menampilkan jumlah total pasien, dokter, dan obat -->
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -150,5 +173,3 @@ $content = ob_get_clean();
 </body>
 
 </html>
-
-<?php include '../../layouts/index.php'; ?>

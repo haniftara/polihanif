@@ -53,6 +53,7 @@ if (isset($_POST['klik'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <title>Daftar Poli | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -63,8 +64,26 @@ if (isset($_POST['klik'])) {
   <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
 
   <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
     .action-button {
       min-width: 80px;
+    }
+
+    .main-sidebar {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+
+    .main-sidebar .nav-link,
+    .main-sidebar .brand-link {
+      color: #000000 !important;
+    }
+
+    .main-sidebar .nav-link:hover {
+      background-color: #f2f2f2 !important;
     }
 
     .table th,
@@ -105,6 +124,15 @@ if (isset($_POST['klik'])) {
       margin-bottom: 20px;
     }
 
+    .card-header.bg-warning {
+      background-color: #006bb3 !important;
+      color: rgb(255, 255, 255);
+    }
+
+    .card-header {
+      color: white !important;
+    }
+
     .table {
       margin-top: 20px;
       border-collapse: collapse;
@@ -125,6 +153,7 @@ if (isset($_POST['klik'])) {
 
     /* Responsivitas tabel */
     @media (max-width: 768px) {
+
       .table th,
       .table td {
         padding: 8px;
@@ -146,10 +175,20 @@ if (isset($_POST['klik'])) {
       display: flex;
       flex-direction: column;
     }
-    
+
     .riwayat-section .card {
       margin-top: 20px;
     }
+
+    .alert-warning {
+      background-color: rgb(255, 0, 0) !important;
+      /* Ganti dengan warna yang diinginkan */
+      color: white !important;
+      /* Opsional: Ganti warna teks */
+      border-color: #ddd !important;
+      /* Opsional: Ganti warna border */
+    }
+
 
     /* Menyesuaikan layout ketika lebar layar kecil */
     @media (max-width: 992px) {
@@ -193,6 +232,7 @@ if (isset($_POST['klik'])) {
       <section class="content">
         <div class="container-fluid">
           <div class="row">
+            
             <!-- Form Daftar Poli -->
             <div class="col-lg-4">
               <div class="card form-card">
@@ -225,6 +265,17 @@ if (isset($_POST['klik'])) {
                       <label for="inputJadwal" class="form-label">Pilih Jadwal</label>
                       <select id="inputJadwal" class="form-control" name="id_jadwal">
                         <option value="900">Pilih Jadwal</option>
+                        <?php
+                        $jadwal = $pdo->prepare("SELECT * FROM jadwal_periksa");
+                        $jadwal->execute();
+                        if ($jadwal->rowCount() == 0) {
+                          echo "<option>Tidak ada jadwal</option>";
+                        } else {
+                          while ($j = $jadwal->fetch()) {
+                            echo "<option value='{$j['id']}'>{$j['hari']}, {$j['jam_mulai']} - {$j['jam_selesai']}</option>";
+                          }
+                        }
+                        ?>
                       </select>
                     </div>
                     <div class="mb-3">
@@ -297,7 +348,7 @@ if (isset($_POST['klik'])) {
                 <div class="card-body">
                   <?php
                   try {
-                      $query = $pdo->prepare("SELECT 
+                    $query = $pdo->prepare("SELECT 
                                               pr.tgl_periksa,
                                               pr.catatan,
                                               pr.biaya_periksa,
@@ -314,14 +365,14 @@ if (isset($_POST['klik'])) {
                                           WHERE dpo.id_pasien = :id_pasien
                                           GROUP BY pr.id
                                           ORDER BY pr.tgl_periksa DESC");
-                      $query->bindParam(':id_pasien', $id_pasien, PDO::PARAM_INT);
-                      $query->execute();
+                    $query->bindParam(':id_pasien', $id_pasien, PDO::PARAM_INT);
+                    $query->execute();
 
-                      if ($query->rowCount() == 0) {
-                          echo "<div class='alert alert-warning mt-4 text-center'>Tidak ada riwayat pemeriksaan.</div>";
-                      } else {
-                          echo '<table class="table table-bordered table-hover text-center">';
-                          echo '<thead>
+                    if ($query->rowCount() == 0) {
+                      echo "<div class='alert alert-warning mt-4 text-center'>Tidak ada riwayat pemeriksaan.</div>";
+                    } else {
+                      echo '<table class="table table-bordered table-hover text-center">';
+                      echo '<thead>
                                   <tr>
                                     <th>No</th>
                                     <th>Dokter</th>
@@ -332,10 +383,10 @@ if (isset($_POST['klik'])) {
                                     <th>Tanggal Pemeriksaan</th>
                                   </tr>
                                 </thead>';
-                          echo '<tbody>';
-                          $no = 1;
-                          while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                              echo "<tr>
+                      echo '<tbody>';
+                      $no = 1;
+                      while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<tr>
                                       <td>{$no}</td>
                                       <td>" . htmlspecialchars($row['nama_dokter']) . "</td>
                                       <td>" . htmlspecialchars($row['keluhan']) . "</td>
@@ -344,13 +395,13 @@ if (isset($_POST['klik'])) {
                                       <td>Rp " . number_format($row['biaya_periksa'], 0, ',', '.') . "</td>
                                       <td>" . htmlspecialchars($row['tgl_periksa']) . "</td>
                                     </tr>";
-                              $no++;
-                          }
-                          echo '</tbody>';
-                          echo '</table>';
+                        $no++;
                       }
+                      echo '</tbody>';
+                      echo '</table>';
+                    }
                   } catch (PDOException $e) {
-                      echo "<div class='alert alert-danger'>Error: " . $e->getMessage() . "</div>";
+                    echo "<div class='alert alert-danger'>Error: " . $e->getMessage() . "</div>";
                   }
                   ?>
                 </div>
@@ -364,25 +415,33 @@ if (isset($_POST['klik'])) {
     <?php include "../../../layouts/footer.php"; ?>
   </div>
 
-  <!-- Scripts -->
-  <?php include "../../../layouts/pluginsexport.php"; ?>
   <script>
-    document.getElementById('inputPoli').addEventListener('change', function() {
-      var poliId = this.value;
-      loadJadwal(poliId);
-    });
+  // Ketika dropdown Poli berubah, ambil jadwal berdasarkan poli yang dipilih
+  document.getElementById('inputPoli').addEventListener('change', function () {
+    var poliId = this.value; // Ambil ID poli yang dipilih
+    loadJadwal(poliId); // Panggil fungsi untuk memuat jadwal
+  });
 
-    function loadJadwal(poliId) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'get_jadwal.php?poli_id=' + poliId, true);
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          document.getElementById('inputJadwal').innerHTML = xhr.responseText;
-        }
-      };
-      xhr.send();
-    }
-  </script>
+  // Fungsi untuk memuat jadwal berdasarkan poli ID
+  function loadJadwal(poliId) {
+    // Buat permintaan AJAX menggunakan XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'get_jadwal.php?poli_id=' + poliId, true); // Kirim parameter poli_id
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        // Masukkan data jadwal ke dalam dropdown inputJadwal
+        document.getElementById('inputJadwal').innerHTML = xhr.responseText;
+      } else {
+        console.error('Gagal memuat jadwal:', xhr.statusText); // Debug jika ada error
+      }
+    };
+    xhr.onerror = function () {
+      console.error('Terjadi kesalahan jaringan'); // Debug jika ada masalah jaringan
+    };
+    xhr.send(); // Kirim permintaan
+  }
+</script>
+
 </body>
 
 </html>

@@ -1,166 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Poliklinik BK</title>
-    <link href="./dist/css/stylesku.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome - Poliklinik Nusantara</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* General styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff5f5;
-            color: #b71c1c;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Gradasi background */
+        .gradient-custom {
+            background: linear-gradient(45deg, #001f3d, #004e8c);
+            /* Navy to Blue */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Navbar styles */
-        .navbar {
-            background-color: #d32f2f;
-            color: white;
-            height: 80px; /* Ensure sufficient height for centering */
-            display: flex; /* Enable flexbox */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Header tulisan di pojok kiri atas */
+        .header-text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: black;
+            padding: 15px 20px;
+            border-radius: 8px;
+            z-index: 10;
         }
 
-        .navbar .navbar-brand {
-            font-size: 26px;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s, transform 0.3s;
+        .header-text h1 {
+            font-size: 32px;
+            margin: 0 0 5px 0;
         }
 
-        .navbar .navbar-brand:hover {
-            color: #ffcdd2;
-            transform: scale(1.1);
+        /* Layout container */
+        .main-container {
+            display: flex;
+            flex: 1;
+            height: calc(100% - 50px);
         }
 
-        /* Features section */
-        .features {
-            padding: 60px 0;
-            background-color: white;
+        /* Gambar di kiri */
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background-color: #fff;
+            padding-bottom: 0px;
         }
 
-        .features .feature-item {
-            background-color: #ffebee;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-            animation: fadeIn 1s ease;
-        }
+        /* Animasi Gambar Bergerak */
+        @keyframes move-up-down {
 
-        .features .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            background-color: #ffcdd2;
-        }
-
-        .features .feature-title {
-            font-size: 24px;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .features .feature-link {
-            color: #d32f2f;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .features .feature-link:hover {
-            color: #b71c1c;
-            transform: translateX(5px);
-        }
-
-        .icon-arrow-right:before {
-            content: "\2192";
-        }
-
-        /* Footer styles */
-        .footer {
-            background-color: #d32f2f;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 30px;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 16px;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
+            0%,
+            100% {
                 transform: translateY(0);
+                /* Posisi awal */
             }
+
+            50% {
+                transform: translateY(-10px);
+                /* Bergerak ke atas */
+            }
+        }
+
+        .image-container img {
+            max-width: 90;
+            max-height: 90%;
+            object-fit: contain;
+            animation: move-up-down 3s ease-in-out infinite;
+            /* Tambahkan animasi */
+        }
+
+        /* Form di kanan */
+        .form-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #001f3d, #004e8c);
+            /* Gradasi biru gelap */
+        }
+
+        /* Card Design */
+        .welcome-card {
+            border-radius: 1rem;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        .welcome-card h2 {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .welcome-card p {
+            margin-bottom: 30px;
+        }
+
+        .btn-custom {
+            background-color: #006bb3;
+            color: white;
+            border-radius: 1rem;
+            width: 100%;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #004e8c;
         }
     </style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a class="navbar-brand" href="#">Poliklinik Bimbingan Karir</a>
-    </nav>
 
-    <!-- Features Section -->
-    <?php if (!$muncul) : ?>
-        <section class="features" id="features">
-            <div class="container">
-                <div class="feature-item">
-                    <h2 class="feature-title">Login Sebagai Dokter</h2>
-                    <p>Akses login dokter, Silahkan login sebagai dokter</p>
-                    <a class="feature-link" href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/pages/auth/login.php">
-                        Klik untuk login <i class="icon-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="container">
-                <div class="feature-item">
-                    <h2 class="feature-title">Login Sebagai Pasien</h2>
-                    <p>Akses login Pasien, Silahkan login sebagai Pasien</p>
-                    <a class="feature-link" href="http://<?= $_SERVER['HTTP_HOST'] ?>/bk_adel/pages/auth/login-pasien.php">
-                        Klik untuk login <i class="icon-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-    <?php endif ?>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; BK 2024 Poliklinik</p>
+    <section class="vh-100 gradient-custom">
+        <!-- Header tulisan -->
+        <div class="header-text">
+            <h1>Poliklinik Nusantara</h1>
         </div>
-    </footer>
+
+        <div class="main-container">
+            <!-- Bagian gambar -->
+            <div class="image-container">
+                <img src="images/rs2.png" alt="Gambar Rumah Sakit">
+            </div>
+
+            <!-- Bagian form -->
+            <div class="form-container">
+                <div class="card welcome-card">
+                    <div class="card-body text-center">
+                        <h2 class="fw-bold text-uppercase">Selamat Datang</h2>
+                        <p class="text-muted">Pilih opsi di bawah untuk melanjutkan</p>
+
+                        <!-- Tombol Registrasi -->
+                        <a href="http://<?= $_SERVER['HTTP_HOST'] ?>/pages/auth/login-pasien.php" class="btn btn-custom btn-lg">
+                            <i class="fas fa-user"></i> Registrasi
+                        </a>
+
+                        <!-- Tombol Login -->
+                        <a href="http://<?= $_SERVER['HTTP_HOST'] ?>/pages/auth/login.php" class="btn btn-custom btn-lg">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
